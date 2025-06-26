@@ -40,8 +40,22 @@ Réponds uniquement avec le code demandé, sans explications supplémentaires.`;
     });
 
     return completion.choices[0]?.message?.content || 'Erreur lors de la génération du code.';
-  } catch (error) {
+  } catch (error: any) {
     console.error('Erreur OpenAI:', error);
-    throw new Error('Erreur lors de la communication avec OpenAI. Vérifiez votre clé API.');
+    
+    // Gestion spécifique des erreurs OpenAI
+    if (error?.status === 429) {
+      throw new Error('Quota API OpenAI dépassé. Veuillez vérifier votre plan et vos détails de facturation sur platform.openai.com. Vous devrez peut-être mettre à jour votre clé API dans les paramètres.');
+    } else if (error?.status === 401) {
+      throw new Error('Clé API OpenAI invalide. Veuillez vérifier votre clé API dans les paramètres.');
+    } else if (error?.status === 403) {
+      throw new Error('Accès refusé à l\'API OpenAI. Vérifiez les permissions de votre clé API.');
+    } else if (error?.status === 500) {
+      throw new Error('Erreur serveur OpenAI. Veuillez réessayer dans quelques instants.');
+    } else if (error?.code === 'NETWORK_ERROR' || !navigator.onLine) {
+      throw new Error('Erreur de connexion. Vérifiez votre connexion internet.');
+    } else {
+      throw new Error(`Erreur OpenAI: ${error?.message || 'Erreur inconnue'}. Vérifiez votre clé API et votre connexion.`);
+    }
   }
 }
