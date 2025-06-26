@@ -144,11 +144,20 @@ function App() {
         applyGeneratedCode(generatedCode);
       }
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
+      
       setMessages(prev => prev.map(msg => 
         msg.id === assistantMessage.id 
-          ? { ...msg, content: `Erreur: ${error instanceof Error ? error.message : 'Erreur inconnue'}`, isGenerating: false }
+          ? { ...msg, content: `❌ ${errorMessage}`, isGenerating: false }
           : msg
       ));
+
+      // Si c'est une erreur de quota, ouvrir automatiquement les paramètres
+      if (errorMessage.includes('quota') || errorMessage.includes('429')) {
+        setTimeout(() => {
+          setShowSettings(true);
+        }, 1000);
+      }
     } finally {
       setIsGenerating(false);
     }
