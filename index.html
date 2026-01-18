@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capillo Paris - Cabinet de Graphe Capillaire</title>
+    <title>Capillo Paris - Expert en Greffe Capillaire</title>
     <style>
         * {
             margin: 0;
@@ -13,18 +13,18 @@
 
         :root {
             --kaki-dark: #4a5240;
-            --kaki-medium: #6b7358;
-            --kaki-light: #9da488;
-            --kaki-pale: #d4d9c8;
+            --kaki-medium: #6b7560;
+            --kaki-light: #8b9479;
+            --kaki-pale: #b8c5a8;
             --white: #ffffff;
-            --black: #2c2c2c;
-            --gray: #f5f5f5;
+            --light-bg: #f5f7f3;
+            --text-dark: #2c3e2a;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--black);
+            color: var(--text-dark);
             overflow-x: hidden;
         }
 
@@ -43,31 +43,29 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
         }
 
         .logo {
+            text-align: center;
             font-size: 2rem;
             font-weight: bold;
+            margin-bottom: 1rem;
             letter-spacing: 2px;
-            text-align: center;
         }
 
-        nav ul {
-            list-style: none;
+        nav {
             display: flex;
+            justify-content: center;
             gap: 2rem;
+            flex-wrap: wrap;
         }
 
         nav a {
             color: var(--white);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
-            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+            font-size: 1.1rem;
         }
 
         nav a:hover {
@@ -75,49 +73,54 @@
         }
 
         .hero {
-            background: linear-gradient(rgba(74, 82, 64, 0.8), rgba(107, 115, 88, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%234a5240" width="1200" height="600"/><circle cx="200" cy="150" r="80" fill="%236b7358" opacity="0.3"/><circle cx="900" cy="400" r="120" fill="%239da488" opacity="0.2"/><circle cx="600" cy="300" r="100" fill="%236b7358" opacity="0.25"/></svg>');
+            background: linear-gradient(rgba(74, 82, 64, 0.7), rgba(74, 82, 64, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%236b7560" width="1200" height="600"/><circle cx="200" cy="150" r="80" fill="%234a5240" opacity="0.3"/><circle cx="900" cy="400" r="120" fill="%238b9479" opacity="0.2"/><circle cx="600" cy="300" r="100" fill="%234a5240" opacity="0.25"/></svg>');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: var(--white);
             padding: 180px 2rem 120px;
             text-align: center;
-            margin-top: 80px;
+            margin-top: 100px;
         }
 
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             animation: fadeInUp 1s ease;
         }
 
         .hero p {
             font-size: 1.4rem;
             margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
             animation: fadeInUp 1.2s ease;
         }
 
         .cta-button {
             display: inline-block;
-            background: var(--white);
+            background: var(--kaki-pale);
             color: var(--kaki-dark);
-            padding: 1rem 3rem;
+            padding: 1rem 2.5rem;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
             font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
             animation: fadeInUp 1.4s ease;
         }
 
         .cta-button:hover {
+            background: var(--white);
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
-        .container {
+        section {
+            padding: 80px 2rem;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 5rem 2rem;
         }
 
         .section-title {
@@ -142,13 +145,14 @@
         }
 
         .services {
-            background: var(--gray);
+            background: var(--light-bg);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
         .service-card {
@@ -156,28 +160,29 @@
             padding: 2.5rem;
             border-radius: 15px;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(74, 82, 64, 0.2);
+            box-shadow: 0 15px 35px rgba(74, 82, 64, 0.2);
         }
 
         .service-icon {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
+            color: var(--kaki-medium);
         }
 
         .service-card h3 {
             color: var(--kaki-dark);
-            font-size: 1.5rem;
             margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
 
         .service-card p {
-            color: var(--black);
+            color: var(--kaki-medium);
             line-height: 1.8;
         }
 
@@ -194,44 +199,36 @@
 
         .about-text h3 {
             color: var(--kaki-dark);
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 1.5rem;
         }
 
         .about-text p {
+            color: var(--kaki-medium);
             margin-bottom: 1.5rem;
-            line-height: 1.9;
-            color: var(--black);
+            line-height: 1.8;
+            font-size: 1.1rem;
         }
 
         .about-image {
-            background: linear-gradient(135deg, var(--kaki-light), var(--kaki-medium));
+            background: linear-gradient(135deg, var(--kaki-light), var(--kaki-pale));
             height: 400px;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(74, 82, 64, 0.3);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 5rem;
+            color: var(--white);
         }
 
         .contact {
-            background: var(--kaki-pale);
+            background: var(--light-bg);
         }
 
         .contact-form {
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
             background: var(--white);
             padding: 3rem;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.
+            box-shadow: 0 10px 30px rgba(0,0,0,0
