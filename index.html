@@ -3,99 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Capillo Paris - Greffe Capillaire</title>
+<title>SystelImmo - Agence Immobilière</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',Tahoma,sans-serif;line-height:1.6;color:#333;background:#f8f7f5}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#000;color:#fff;line-height:1.6}
 .container{max-width:1200px;margin:0 auto;padding:0 20px}
-header{background:#6b705c;padding:15px 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.1)}
-.logo{color:#fff;font-size:28px;font-weight:700;text-align:center;margin-bottom:10px;letter-spacing:2px}
-nav{display:flex;justify-content:center;gap:30px;flex-wrap:wrap}
-nav a{color:#ffe8d6;text-decoration:none;font-weight:500;transition:.3s}
-nav a:hover{color:#fff}
-.hero{background:linear-gradient(135deg,#a5a58d 0%,#6b705c 100%);color:#fff;padding:100px 20px;text-align:center}
-.hero h1{font-size:48px;margin-bottom:20px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}
-.hero p{font-size:20px;margin-bottom:30px;opacity:.95}
-.btn{display:inline-block;background:#cb997e;color:#fff;padding:15px 40px;text-decoration:none;border-radius:30px;font-weight:600;transition:.3s;border:none;cursor:pointer;font-size:16px}
-.btn:hover{background:#b88965;transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,.2)}
-.section{padding:80px 20px}
-.section h2{text-align:center;font-size:36px;margin-bottom:50px;color:#6b705c}
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
-.card{background:#fff;padding:40px 30px;border-radius:15px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,.08);transition:.3s;border-top:4px solid #a5a58d}
-.card:hover{transform:translateY(-10px);box-shadow:0 10px 30px rgba(0,0,0,.15)}
-.card h3{color:#6b705c;margin-bottom:15px;font-size:24px}
-.card p{color:#666;line-height:1.8}
-.contact{background:#ddbea9}
-.contact form{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
-.contact input,.contact textarea{padding:15px;border:2px solid #a5a58d;border-radius:8px;font-size:16px;font-family:inherit;width:100%;transition:.3s}
-.contact input:focus,.contact textarea:focus{outline:none;border-color:#6b705c}
-.contact textarea{min-height:150px;resize:vertical}
-footer{background:#6b705c;color:#fff;text-align:center;padding:30px 20px}
-footer p{opacity:.9}
+header{background:#000;padding:20px 0;border-bottom:2px solid #d4af37}
+nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.logo{font-size:28px;font-weight:bold;color:#d4af37;text-transform:uppercase;letter-spacing:2px}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{color:#fff;text-decoration:none;transition:color 0.3s;font-weight:500}
+.nav-links a:hover{color:#d4af37}
+.hero{background:linear-gradient(135deg,#000 0%,#1a1a1a 100%);padding:100px 20px;text-align:center;border-bottom:3px solid #d4af37}
+.hero h1{font-size:48px;margin-bottom:20px;color:#d4af37;text-transform:uppercase;letter-spacing:3px}
+.hero p{font-size:20px;margin-bottom:30px;color:#ccc}
+.btn{display:inline-block;padding:15px 40px;background:#d4af37;color:#000;text-decoration:none;font-weight:bold;border-radius:5px;transition:transform 0.3s,box-shadow 0.3s;border:none;cursor:pointer}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(212,175,55,0.3)}
+.services{padding:80px 20px;background:#0a0a0a}
+.section-title{text-align:center;font-size:36px;margin-bottom:50px;color:#d4af37;text-transform:uppercase;letter-spacing:2px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+.card{background:#1a1a1a;padding:40px 30px;border-radius:10px;text-align:center;border:2px solid #d4af37;transition:transform 0.3s,box-shadow 0.3s}
+.card:hover{transform:translateY(-10px);box-shadow:0 15px 30px rgba(212,175,55,0.2)}
+.card-icon{font-size:50px;margin-bottom:20px}
+.card h3{color:#d4af37;margin-bottom:15px;font-size:24px}
+.card p{color:#ccc;font-size:16px}
+.contact{padding:80px 20px;background:#000}
+.form-group{margin-bottom:25px}
+.form-group label{display:block;margin-bottom:8px;color:#d4af37;font-weight:500}
+.form-group input,.form-group textarea{width:100%;padding:12px;background:#1a1a1a;border:2px solid #d4af37;color:#fff;border-radius:5px;font-size:16px}
+.form-group input:focus,.form-group textarea:focus{outline:none;box-shadow:0 0 10px rgba(212,175,55,0.5)}
+.form-group textarea{resize:vertical;min-height:120px}
+form{max-width:600px;margin:0 auto}
+footer{background:#000;padding:30px 20px;text-align:center;border-top:2px solid #d4af37}
+footer p{color:#d4af37;font-size:14px}
 @media(max-width:768px){
 .hero h1{font-size:32px}
-.hero p{font-size:18px}
-nav{gap:15px}
-.section h2{font-size:28px}
+.hero p{font-size:16px}
+.nav-links{gap:15px;flex-wrap:wrap}
+.logo{font-size:22px}
 }
 </style>
 </head>
 <body>
 <header>
 <div class="container">
-<div class="logo">CAPILLO PARIS</div>
 <nav>
-<a href="#accueil">Accueil</a>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
+<div class="logo">SystelImmo</div>
+<ul class="nav-links">
+<li><a href="#accueil">Accueil</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
 </div>
 </header>
-
 <section id="accueil" class="hero">
 <div class="container">
-<h1>Votre Greffe Capillaire à Paris</h1>
-<p>Expertise, naturel et résultats durables pour retrouver confiance</p>
-<a href="#contact" class="btn">Prendre Rendez-vous</a>
+<h1>Votre Avenir Immobilier</h1>
+<p>L'excellence au service de vos projets immobiliers depuis 15 ans</p>
+<a href="#contact" class="btn">Contactez-nous</a>
 </div>
 </section>
-
-<section id="services" class="section">
+<section id="services" class="services">
 <div class="container">
-<h2>Nos Services</h2>
-<div class="services">
+<h2 class="section-title">Nos Services</h2>
+<div class="cards">
 <div class="card">
-<h3>Greffe FUE</h3>
-<p>Technique de pointe pour une extraction folliculaire précise et des résultats naturels sans cicatrice visible.</p>
+<div class="card-icon">🏠</div>
+<h3>Vente</h3>
+<p>Accompagnement personnalisé pour la vente de votre bien au meilleur prix</p>
 </div>
 <div class="card">
-<h3>Greffe DHI</h3>
-<p>Implantation directe avec contrôle optimal de l'angle et de la direction pour un rendu ultra-naturel.</p>
+<div class="card-icon">🔑</div>
+<h3>Location</h3>
+<p>Trouvez le logement idéal adapté à vos besoins et votre budget</p>
 </div>
 <div class="card">
-<h3>Consultation</h3>
-<p>Bilan capillaire personnalisé et plan de traitement adapté à votre situation par nos experts.</p>
+<div class="card-icon">💼</div>
+<h3>Gestion</h3>
+<p>Gestion complète de votre patrimoine immobilier en toute sérénité</p>
 </div>
 </div>
 </div>
 </section>
-
-<section id="contact" class="section contact">
+<section id="contact" class="contact">
 <div class="container">
-<h2>Contactez-nous</h2>
+<h2 class="section-title">Contactez-nous</h2>
 <form>
-<input type="text" placeholder="Votre nom" required>
-<input type="email" placeholder="Votre email" required>
-<textarea placeholder="Votre message" required></textarea>
+<div class="form-group">
+<label for="nom">Nom complet</label>
+<input type="text" id="nom" name="nom" required>
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email" name="email" required>
+</div>
+<div class="form-group">
+<label for="message">Message</label>
+<textarea id="message" name="message" required></textarea>
+</div>
 <button type="submit" class="btn">Envoyer</button>
 </form>
 </div>
 </section>
-
 <footer>
 <div class="container">
-<p>&copy; 2024 Capillo Paris - Tous droits réservés</p>
-<p>Cabinet de greffe capillaire de prestige à Paris</p>
+<p>&copy; 2024 SystelImmo - Tous droits réservés</p>
 </div>
 </footer>
 </body>
